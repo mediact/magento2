@@ -6,6 +6,7 @@
 namespace Magento\Theme\Block\Html;
 
 use Magento\Framework\Data\Tree\Node;
+use Magento\Framework\Data\Tree\Node\Collection;
 use Magento\Framework\Data\Tree\NodeFactory;
 use Magento\Framework\Data\TreeFactory;
 use Magento\Framework\DataObject\IdentityInterface;
@@ -213,11 +214,8 @@ class Topmenu extends Template implements IdentityInterface
         $parentLevel = $menuTree->getLevel();
         $childLevel = $parentLevel === null ? 0 : $parentLevel + 1;
 
-        /** @var \Magento\Framework\Data\Tree\Node $child */
-        foreach ($children as $key => $child) {
-            if ($childLevel === 0 && $child->getData('is_parent_active') === false) {
-                unset($children[$key]);
-            }
+        if ($childLevel === 0) {
+            $this->removeOrphans($children);
         }
 
         $counter = 1;
@@ -406,5 +404,21 @@ class Topmenu extends Template implements IdentityInterface
             );
         }
         return $this->_menu;
+    }
+
+    /**
+     * Remove children from collection when the parent is not active
+     *
+     * @param Collection $children
+     * @return void
+     */
+    private function removeOrphans(Collection $children)
+    {
+        /** @var Node $child */
+        foreach ($children as $child) {
+            if ($child->getData('is_parent_active') === false) {
+                $children->delete($child);
+            }
+        }
     }
 }
