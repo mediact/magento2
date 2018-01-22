@@ -213,6 +213,13 @@ class Topmenu extends Template implements IdentityInterface
         $parentLevel = $menuTree->getLevel();
         $childLevel = $parentLevel === null ? 0 : $parentLevel + 1;
 
+        /** @var \Magento\Framework\Data\Tree\Node $child */
+        foreach ($children as $key => $child) {
+            if ($childLevel === 0 && $child->getData('is_parent_active') === false) {
+                unset($children[$key]);
+            }
+        }
+
         $counter = 1;
         $itemPosition = 1;
         $childrenCount = $children->count();
@@ -220,11 +227,7 @@ class Topmenu extends Template implements IdentityInterface
         $parentPositionClass = $menuTree->getPositionClass();
         $itemPositionClassPrefix = $parentPositionClass ? $parentPositionClass . '-' : 'nav-';
 
-        /** @var \Magento\Framework\Data\Tree\Node $child */
         foreach ($children as $child) {
-            if ($childLevel === 0 && $child->getData('is_parent_active') === false) {
-                continue;
-            }
             $child->setLevel($childLevel);
             $child->setIsFirst($counter == 1);
             $child->setIsLast($counter == $childrenCount);
