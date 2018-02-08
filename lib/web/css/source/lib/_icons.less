@@ -23,7 +23,8 @@
     @_icon-font-vertical-align: @icon-font__vertical-align,
     @_icon-font-position: @icon-font__position,
     @_icon-font-text-hide: @icon-font__text-hide,
-    @_icon-font-display: @icon-font__display
+    @_icon-font-display: @icon-font__display,
+    @_icon-font-weight: @icon-font__weight
 ) when (@_icon-font-position = before) {
     ._lib-icon-text-hide(@_icon-font-text-hide);
     .lib-css(display, @_icon-font-display);
@@ -31,13 +32,14 @@
 
     &:before {
         ._lib-icon-font(
-            @_icon-font-content,
-            @_icon-font,
-            @_icon-font-size,
-            @_icon-font-line-height,
-            @_icon-font-color,
-            @_icon-font-margin,
-            @_icon-font-vertical-align
+                @_icon-font-content,
+                @_icon-font,
+                @_icon-font-size,
+                @_icon-font-line-height,
+                @_icon-font-color,
+                @_icon-font-margin,
+                @_icon-font-vertical-align,
+                @_icon-font-weight
         );
     }
 
@@ -66,7 +68,8 @@
     @_icon-font-vertical-align: @icon-font__vertical-align,
     @_icon-font-position: @icon-font__position,
     @_icon-font-text-hide: @icon-font__text-hide,
-    @_icon-font-display: @icon-font__display
+    @_icon-font-display: @icon-font__display,
+    @_icon-font-weight: @icon-font__weight
 ) when (@_icon-font-position = after) {
     ._lib-icon-text-hide(@_icon-font-text-hide);
     .lib-css(display, @_icon-font-display);
@@ -74,13 +77,14 @@
 
     &:after {
         ._lib-icon-font(
-            @_icon-font-content,
-            @_icon-font,
-            @_icon-font-size,
-            @_icon-font-line-height,
-            @_icon-font-color,
-            @_icon-font-margin,
-            @_icon-font-vertical-align
+                @_icon-font-content,
+                @_icon-font,
+                @_icon-font-size,
+                @_icon-font-line-height,
+                @_icon-font-color,
+                @_icon-font-margin,
+                @_icon-font-vertical-align,
+                @_icon-font-weight
         );
     }
 
@@ -155,13 +159,13 @@
 
     &:before {
         ._lib-icon-image(
-            @_icon-image,
-            @_icon-image-width,
-            @_icon-image-height,
-            @_icon-image-margin,
-            @_icon-image-vertical-align,
-            @_icon-image-position-x,
-            @_icon-image-position-y
+                @_icon-image,
+                @_icon-image-width,
+                @_icon-image-height,
+                @_icon-image-margin,
+                @_icon-image-vertical-align,
+                @_icon-image-position-x,
+                @_icon-image-position-y
         );
         .lib-css(margin, @_icon-image-margin);
     }
@@ -183,13 +187,13 @@
 
     &:after {
         ._lib-icon-image(
-            @_icon-image,
-            @_icon-image-width,
-            @_icon-image-height,
-            @_icon-image-margin,
-            @_icon-image-vertical-align,
-            @_icon-image-position-x,
-            @_icon-image-position-y
+                @_icon-image,
+                @_icon-image-width,
+                @_icon-image-height,
+                @_icon-image-margin,
+                @_icon-image-vertical-align,
+                @_icon-image-position-x,
+                @_icon-image-position-y
         );
         .lib-css(margin, @_icon-image-margin);
     }
@@ -202,8 +206,8 @@
 ) when (@_icon-image-position = before) {
     &:before {
         ._lib-icon-image-position(
-            @_icon-image-position-x,
-            @_icon-image-position-y
+                @_icon-image-position-x,
+                @_icon-image-position-y
         );
     }
 }
@@ -215,8 +219,8 @@
 ) when (@_icon-image-position = after) {
     &:after {
         ._lib-icon-image-position(
-            @_icon-image-position-x,
-            @_icon-image-position-y
+                @_icon-image-position-x,
+                @_icon-image-position-y
         );
     }
 }
@@ -229,9 +233,9 @@
 ) when (@_icon-sprite-position = before) {
     &:before {
         ._lib-icon-sprite-position(
-            @_icon-sprite-position-x,
-            @_icon-sprite-position-y,
-            @_icon-sprite-grid
+                @_icon-sprite-position-x,
+                @_icon-sprite-position-y,
+                @_icon-sprite-grid
         );
     }
 }
@@ -244,9 +248,9 @@
 ) when (@_icon-sprite-position = after) {
     &:after {
         ._lib-icon-sprite-position(
-            @_icon-sprite-position-x,
-            @_icon-sprite-position-y,
-            @_icon-sprite-grid
+                @_icon-sprite-position-x,
+                @_icon-sprite-position-y,
+                @_icon-sprite-grid
         );
     }
 }
@@ -303,8 +307,8 @@
     .lib-css(margin, @_icon-image-margin);
     .lib-css(vertical-align, @_icon-image-vertical-align);
     ._lib-icon-image-size(
-        @_icon-image-width,
-        @_icon-image-height
+            @_icon-image-width,
+            @_icon-image-height
     );
     background-repeat: no-repeat;
     content: '';
@@ -341,7 +345,8 @@
     @_icon-font-line-height,
     @_icon-font-color,
     @_icon-font-margin,
-    @_icon-font-vertical-align
+    @_icon-font-vertical-align,
+    @_icon-font-weight
 ) {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -351,8 +356,8 @@
     .lib-css(font-family, @_icon-font);
     .lib-css(margin, @_icon-font-margin);
     .lib-css(vertical-align, @_icon-font-vertical-align);
+    .lib-css(font-weight, @_icon-font-weight);
     display: inline-block;
-    font-weight: normal;
     overflow: hidden;
     speak: none;
     text-align: center;
