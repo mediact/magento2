@@ -23,7 +23,8 @@
     @_icon-font-vertical-align: @icon-font__vertical-align,
     @_icon-font-position: @icon-font__position,
     @_icon-font-text-hide: @icon-font__text-hide,
-    @_icon-font-display: @icon-font__display
+    @_icon-font-display: @icon-font__display,
+    @_icon-font-font-weight: @icon-font__font-weight
 ) when (@_icon-font-position = before) {
     ._lib-icon-text-hide(@_icon-font-text-hide);
     .lib-css(display, @_icon-font-display);
@@ -37,7 +38,8 @@
             @_icon-font-line-height,
             @_icon-font-color,
             @_icon-font-margin,
-            @_icon-font-vertical-align
+            @_icon-font-vertical-align,
+            @_icon-font-font-weight
         );
     }
 
@@ -66,7 +68,8 @@
     @_icon-font-vertical-align: @icon-font__vertical-align,
     @_icon-font-position: @icon-font__position,
     @_icon-font-text-hide: @icon-font__text-hide,
-    @_icon-font-display: @icon-font__display
+    @_icon-font-display: @icon-font__display,
+    @_icon-font-font-weight: @icon-font__font-weight
 ) when (@_icon-font-position = after) {
     ._lib-icon-text-hide(@_icon-font-text-hide);
     .lib-css(display, @_icon-font-display);
@@ -80,7 +83,8 @@
             @_icon-font-line-height,
             @_icon-font-color,
             @_icon-font-margin,
-            @_icon-font-vertical-align
+            @_icon-font-vertical-align,
+            @_icon-font-font-weight
         );
     }
 
@@ -341,7 +345,8 @@
     @_icon-font-line-height,
     @_icon-font-color,
     @_icon-font-margin,
-    @_icon-font-vertical-align
+    @_icon-font-vertical-align,
+    @_icon-font-font-weight
 ) {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -351,8 +356,8 @@
     .lib-css(font-family, @_icon-font);
     .lib-css(margin, @_icon-font-margin);
     .lib-css(vertical-align, @_icon-font-vertical-align);
+    .lib-css(font-weight, @_icon-font-font-weight);
     display: inline-block;
-    font-weight: normal;
     overflow: hidden;
     speak: none;
     text-align: center;
